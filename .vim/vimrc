@@ -108,6 +108,7 @@ set undodir=~/.vimundo/
 " Supress warning when moving out from unsaved buffers
 set hidden
 map <C-n> :NERDTreeToggle<CR>
+map <D-/> <leader>ci
 
 " Supress warning when reloading file
 setl autoread
