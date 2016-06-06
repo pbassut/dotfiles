@@ -12,7 +12,6 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'Valloric/YouCompleteMe'
 
 Plugin 'sjl/badwolf'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'digitaltoad/vim-pug'
 
 Plugin 'bling/vim-airline'
@@ -20,7 +19,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'toyamarinyon/vim-swift'
 Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
 Plugin 'scrooloose/nerdtree'
@@ -29,6 +27,10 @@ Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'nvie/vim-flake8'
 Plugin 'easymotion/vim-easymotion'
+
+Plugin 'toyamarinyon/vim-swift'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'kchmck/vim-coffee-script'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
