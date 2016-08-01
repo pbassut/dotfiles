@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'lepture/vim-jinja'
 
 Plugin 'sjl/badwolf'
 Plugin 'digitaltoad/vim-pug'
@@ -27,6 +28,9 @@ Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'nvie/vim-flake8'
 Plugin 'easymotion/vim-easymotion'
+
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -109,7 +113,12 @@ set undodir=~/.vimundo/
 
 " Supress warning when moving out from unsaved buffers
 set hidden
+
+" NERDTree Maps
+map <leader>f :NERDTreeFind<cr>
 map <C-n> :NERDTreeToggle<CR>
+
+" Commenting out easiy
 map <D-/> <leader>ci
 
 " Supress warning when reloading file
