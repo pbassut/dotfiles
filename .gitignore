@@ -1,2 +1,4 @@
-.vim/sessions/
+it .vim/sessions/
 .DS_Store
+.vim/bundle/
+.vim/sessions/
