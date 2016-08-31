@@ -2,6 +2,8 @@
 [core]
     editor = /usr/bin/vim
     pager=less -x4
+	excludesfile = /Users/patrickbassut/.gitignore_global
+	trustctime = false
 
 #}}}
 # user {{{
@@ -45,6 +47,7 @@
     default = current
 [diff]
     mnemonicprefix = true
+	tool = Kaleidoscope
 [branch]
     autosetuprebase = always
 [apply]
@@ -184,3 +187,19 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = Kaleidoscope
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false

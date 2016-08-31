@@ -19,7 +19,8 @@ export PATH="$PATH:/usr/local/Cellar/rabbitmq/3.6.1/sbin/"
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 source /usr/local/bin/virtualenvwrapper.sh
 export ESHARES_SKIP_GEVENT=1
-export PATH=~/Programming/eshares:$PATH
+export PATH="/Users/patrickbassut/Programming/eshares/bin:$PATH"
+export PATH=":/Applications/Kaleidoscope.app/Contents/Resources/bin:$PATH"
 
 source ~/git-completion.bash
 

@@ -28,6 +28,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'nvie/vim-flake8'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-fugitive'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -35,13 +36,16 @@ Plugin 'mxw/vim-jsx'
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
+
+let g:airline#extensions#branch#enabled = 1
+
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -69,7 +73,7 @@ set nu
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Ignore some files
-let g:ctrlp_custom_ignore='tmp$\|\.git$\|\.hg$\|\.svn$\|\.pyc$\|\.png$\|\.jpg$\|\.otf$\|\.woff$\|\.mp3$\|\.ico$\|\.pdf$\|\.woff2$\|\.ttf$\|\.eot$\|\.svg$'
+let g:ctrlp_custom_ignore='tmp$\|\.git$\|\.hg$\|\.svn$\|\.pyc$\|\.png$\|\.jpg$\|\.otf$\|\.woff$\|\.mp3$\|\.ico$\|\.pdf$\|\.woff2$\|\.ttf$\|\.eot$\|\.svg$\|node_modules/\|lib/\|include'
 
 " Ignores .pyc files from searches and stuff
 
@@ -115,24 +119,28 @@ set undodir=~/.vimundo/
 set hidden
 
 " NERDTree Maps
-map <leader>f :NERDTreeFind<cr>
 map <C-n> :NERDTreeToggle<CR>
+map <C-j> :NERDTreeFind<CR>
 
-" Commenting out easiy
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-l>'
+let g:multi_cursor_prev_key='<C-h>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" Commenting out easily
 map <D-/> <leader>ci
 
 " Supress warning when reloading file
 setl autoread
 
-silent! nmap <C-n> :NERDTreeToggle<CR>
-silent! map <F3> :NERDTreeFind<CR>
-
-let g:NERDTreeMapActivateNode="<F3>"
-let g:NERDTreeMapPreview="<F4>"
-
 " Map for tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" Ctags mapping
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR
 
 if filereadable('.vimrclocal')
   so .vimrclocal
