@@ -142,6 +142,11 @@ nmap <F8> :TagbarToggle<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR
 
+" Use ag if available
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
 if filereadable('.vimrclocal')
   so .vimrclocal
 endif
