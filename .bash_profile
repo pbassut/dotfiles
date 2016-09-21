@@ -7,12 +7,15 @@ alias va="source bin/activate"
 alias sp="$manage shell_plus"
 alias eshcelery='celery -A eshares.celery_config worker --loglevel=info --autoreload'
 
+alias pyclean='find . -type f -name "*.py[co]" -delete'
+
 
 # Activates the virtualenv wrapper for the cwd
 function vaw {
     source ~/.virtualenvs/$(basename $(pwd))/bin/activate;
 }
 
+source ~/.bashrc
 
 export PATH="$PATH:/usr/local/Cellar/rabbitmq/3.6.1/sbin/"
 
