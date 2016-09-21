@@ -8,8 +8,8 @@
 #}}}
 # user {{{
 [user]
-    email = patrickbassut@hotmail.com
-    name = Patrick Bassut
+	email = patrick.bassut@esharesinc.com
+	name = Patrick Bassut
 
 #}}}
 # include sendemail config {{{
@@ -69,6 +69,7 @@
     # tweak defaults {{{
     diff = diff --word-diff
     branch = branch -ra
+    recent = "!git branch --sort=-committerdate | head -n 10"
     grep = grep -Ii
     bra = branch -ra
     ai = add --interactive
