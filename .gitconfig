@@ -46,8 +46,7 @@
 [pull]
     default = current
 [diff]
-    mnemonicprefix = true
-	tool = Kaleidoscope
+	tool = sourcetree
 [branch]
     autosetuprebase = always
 [apply]
@@ -118,6 +117,7 @@
     # }}}
     # stash {{{
     sl = stash list
+    sp = stash pop
     sa = stash apply
     ss = stash save
     # }}}
@@ -172,6 +172,7 @@
     # }}}
     # worktree list {{{
     wl = worktree list
+	ctags = !.git/hooks/ctags
     # }}}
 # }}}
 [rerere]
@@ -188,19 +189,11 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[difftool "diffmerge"]
-	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
-[merge]
-	tool = Kaleidoscope
-[mergetool "diffmerge"]
-	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
-	trustExitCode = true
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
 [difftool]
 	prompt = false
+    tool = "sourcetree"
 [mergetool]
+    tool = "sourcetree"
 	prompt = false
+[init]
+	templatedir = ~/.git_template

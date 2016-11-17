@@ -29,6 +29,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'nvie/vim-flake8'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
+Plugin 'craigemery/vim-autotag'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -73,7 +76,7 @@ set nu
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Ignore some files
-let g:ctrlp_custom_ignore='tmp$\|\.git$\|\.hg$\|\.svn$\|\.pyc$\|\.png$\|\.jpg$\|\.otf$\|\.woff$\|\.mp3$\|\.ico$\|\.pdf$\|\.woff2$\|\.ttf$\|\.eot$\|\.svg$\|node_modules/\|lib/\|include'
+let g:ctrlp_custom_ignore='tmp$\|\.git$\|\.hg$\|\.svn$\|\.pyc$\|\.png$\|\.jpg$\|\.otf$\|\.woff$\|\.mp3$\|\.ico$\|\.pdf$\|\.woff2$\|\.ttf$\|\.eot$\|\.svg$\|node_modules/\|lib/'
 
 " Ignores .pyc files from searches and stuff
 

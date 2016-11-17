@@ -9,6 +9,8 @@ alias eshcelery='celery -A eshares.celery_config worker --loglevel=info --autore
 
 alias pyclean='find . -type f -name "*.py[co]" -delete'
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Activates the virtualenv wrapper for the cwd
 function vaw {
@@ -38,10 +40,6 @@ function parse_git_branch {
         printf "[$(hg branch)]"
       fi
   }
-
-  # Setting up locale
-  export LANG=en_US.UTF-8
-  unset LC_ALL
 
   # Set the colored prompt.
   CODE_RED=$'\[\033[0;31m\]'
