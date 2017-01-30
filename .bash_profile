@@ -5,7 +5,7 @@ alias migrate="$manage migrate"
 alias mmigrations="$manage makemigrations"
 alias va="source bin/activate"
 alias sp="$manage shell_plus"
-alias eshcelery='celery -A eshares.celery_config worker --loglevel=info --autoreload'
+alias eshcelery='celery -A eshares.celery_config worker -Q celery,default,user_waiting,whenever --concurrency=5 --maxtasksperchild=10 -l info  --autoreload'
 
 alias pyclean='find . -type f -name "*.py[co]" -delete'
 
@@ -16,6 +16,8 @@ export LANG=en_US.UTF-8
 function vaw {
     source ~/.virtualenvs/$(basename $(pwd))/bin/activate;
 }
+
+alias vesh='workon eshares'
 
 source ~/.bashrc
 
