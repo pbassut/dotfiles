@@ -2,14 +2,15 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+Plugin 'Shougo/deoplete.nvim'
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'lepture/vim-jinja'
 
 Plugin 'sjl/badwolf'
@@ -32,6 +33,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'craigemery/vim-autotag'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'rking/ag.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'sjl/splice.vim'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -46,6 +50,8 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
+"
+call deoplete#enable()
 
 let g:airline#extensions#branch#enabled = 1
 
@@ -80,9 +86,9 @@ let g:ctrlp_custom_ignore='tmp$\|\.git$\|\.hg$\|\.svn$\|\.pyc$\|\.png$\|\.jpg$\|
 
 " Ignores .pyc files from searches and stuff
 
-let g:ycm_autoclose_preview_window_after_completion=1
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>G :YcmCompleter GoToImplementation<CR>
+" Inserting pdb breakpoint 
+map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
+map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
 
 " Leader = ,
 let mapleader = ","
@@ -146,9 +152,10 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR
 
 " Use ag if available
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
+syntax enable
 
 if filereadable('.vimrclocal')
   so .vimrclocal

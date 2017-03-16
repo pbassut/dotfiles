@@ -5,7 +5,7 @@ alias migrate="$manage migrate"
 alias mmigrations="$manage makemigrations"
 alias va="source bin/activate"
 alias sp="$manage shell_plus"
-alias eshcelery='celery -A eshares.celery_config worker -Q celery,default,user_waiting,whenever --concurrency=5 --maxtasksperchild=10 -l info  --autoreload'
+alias eshcelery='celery -A eshares.celery_config worker -Q whenever,user_waiting,longtasks,default --concurrency=4 -l info'
 
 alias pyclean='find . -type f -name "*.py[co]" -delete'
 
@@ -23,11 +23,13 @@ source ~/.bashrc
 
 export PATH="$PATH:/usr/local/Cellar/rabbitmq/3.6.1/sbin/"
 
+export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.4.1_1/"
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 source /usr/local/bin/virtualenvwrapper.sh
 export ESHARES_SKIP_GEVENT=1
 export PATH="/Users/patrickbassut/Programming/eshares/bin:$PATH"
-export PATH=":/Applications/Kaleidoscope.app/Contents/Resources/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
 source ~/git-completion.bash
 
@@ -65,3 +67,8 @@ function parse_git_branch {
       PS1="${CODE_GRAY}\w${CODE_YELL}\$(parse_git_branch)${CODE_RED}\$(parse_hg_branch) ${CODE_NORM}${TITLEBAR}${PSTRING} "
       
       export PS1;
+
+# Setting PATH for Python 3.5
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH

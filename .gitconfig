@@ -45,8 +45,6 @@
     default = current
 [pull]
     default = current
-[diff]
-	tool = sourcetree
 [branch]
     autosetuprebase = always
 [apply]
@@ -185,3 +183,10 @@
 	required = true
 [init]
 	templatedir = ~/.git_template
+[merge]
+    tool = splice
+[mergetool "splice"]
+    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+    trustExitCode = true
+[http]
+	postBuffer = 157286400
