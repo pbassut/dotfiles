@@ -6,6 +6,8 @@ alias mmigrations="$manage makemigrations"
 alias va="source bin/activate"
 alias sp="$manage shell_plus"
 
+alias ctags="`brew --prefix`/bin/ctags"
+
 alias pyclean='find . -type f -name "*.py[co]" -delete'
 
 export LC_ALL=en_US.UTF-8

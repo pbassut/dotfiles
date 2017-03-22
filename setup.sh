@@ -1,3 +1,7 @@
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install the_silver_searcher fzf neovim/neovim/neovim node mongo ctags
+
 # symlink vim to ~/
 ln -s $PWD/.vim/ ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc

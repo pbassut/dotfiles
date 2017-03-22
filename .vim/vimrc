@@ -17,7 +17,6 @@ Plugin 'sjl/badwolf'
 Plugin 'digitaltoad/vim-pug'
 
 Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
@@ -78,13 +77,6 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
 set nu
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" Ignore some files
-let g:ctrlp_custom_ignore='tmp$\|\.git$\|\.hg$\|\.svn$\|\.pyc$\|\.png$\|\.jpg$\|\.otf$\|\.woff$\|\.mp3$\|\.ico$\|\.pdf$\|\.woff2$\|\.ttf$\|\.eot$\|\.svg$\|node_modules/\|lib/'
-
-" Ignores .pyc files from searches and stuff
 
 " Inserting pdb breakpoint 
 map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
