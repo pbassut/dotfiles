@@ -122,6 +122,7 @@ set hidden
 " NERDTree Maps
 map <C-n> :NERDTreeToggle<CR>
 map <C-j> :NERDTreeFind<CR>
+map <C-p> :GFiles<CR>
 
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
