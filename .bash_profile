@@ -21,7 +21,7 @@ function vaw {
 
 export PATH="$PATH:/usr/local/Cellar/rabbitmq/3.6.1/sbin/"
 
-export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.4.1_1/"
+export ANDROID_HOME=/usr/local/share/android-sdk
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
