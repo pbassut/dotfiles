@@ -20,7 +20,6 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
@@ -38,6 +37,8 @@ Plugin 'sjl/splice.vim'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+
+Plugin 'wakatime/vim-wakatime'
 
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -79,6 +80,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 set nu
 
+set wrap
+
 " Inserting pdb breakpoint 
 map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
 map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
@@ -88,15 +91,26 @@ let mapleader = ","
 " }}}
 " ##### General mappings  {{{
 " ##### Tabs {{{
-nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>c :tabclose<cr>
 nnoremap <leader>n :tabnext<cr>
 nnoremap <leader>p :tabprevious<cr>
 " }}}
+" ##### Fzf {{{
+noremap <silent> <leader>f :Files<CR>
+noremap <silent> <leader>g :GFiles<CR>
+noremap <silent> <leader>O :Tags<CR>
+noremap <silent> <leader>t :BTags<CR>
+noremap <silent> <leader>b :Buffers<CR>
+noremap <silent> <leader>? :History<CR>
+
+noremap <silent> <leader>gl :Commits<CR>
+noremap <silent> <leader>ga :BCommits<CR>
+
+" }}}
+
 " Go to start of line with H and to the end with $
 noremap H ^
 noremap L $
-noremap <leader>fs :set lines=999 columns=9999<cr>
 
 " Easy buffer navigation
 nnoremap gn :bn<CR>
@@ -109,9 +123,6 @@ colorscheme badwolf
 
 set relativenumber
 
-let g:session_autosave = 'yes'
-let g:session_autoload = 'no'
-
 " tell it to use an undo file
 set undofile
 set undodir=~/.vimundo/
@@ -122,8 +133,6 @@ set hidden
 " NERDTree Maps
 map <C-n> :NERDTreeToggle<CR>
 map <C-j> :NERDTreeFind<CR>
-
-nmap <C-p> :GFiles<CR>
 
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
@@ -150,9 +159,6 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" Use ag if available
-let g:ackprg = 'ag --nogroup --nocolor --column'
 
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 syntax enable
