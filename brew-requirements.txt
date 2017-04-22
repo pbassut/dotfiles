@@ -1,0 +1,10 @@
+ctags
+fzf
+mobile-shell
+mongodb
+neovim/neovim/neovim
+node
+python3
+the_silver_searcher
+unrar
+watchman
