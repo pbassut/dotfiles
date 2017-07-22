@@ -8,7 +8,7 @@
 #}}}
 # user {{{
 [user]
-	email = patrick.bassut@esharesinc.com
+	email = patrickbassut@hotmail.com
 	name = Patrick Bassut
 
 #}}}
@@ -181,12 +181,11 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-[init]
-	templatedir = ~/.git_template
 [merge]
-    tool = splice
-[mergetool "splice"]
-    cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-    trustExitCode = true
+	tool = diffconflicts
 [http]
 	postBuffer = 157286400
+[mergetool "diffconflicts"]
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+	keepBackup = false
