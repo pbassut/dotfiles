@@ -18,14 +18,16 @@ function vaw {
     source ~/.virtualenvs/$(basename $(pwd))/bin/activate;
 }
 
+export ANDROID_HOME=/usr/local/share/android-sdk
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 export PATH="$PATH:/usr/local/Cellar/rabbitmq/3.6.1/sbin/"
 
-export ANDROID_HOME=/usr/local/share/android-sdk
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
-
+export PATH="$HOME/.fastlane/bin:$PATH"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 
 # Show git branch
 function parse_git_branch {
@@ -38,6 +40,9 @@ if [ "$(hg root 2> /dev/null)" ]; then
     printf "[$(hg branch)]"
   fi
 }
+
+# Increase command history
+HISTFILESIZE=10000000
 
 # Set the colored prompt.
 CODE_RED=$'\[\033[0;31m\]'
@@ -62,10 +67,6 @@ PS1="${CODE_GRAY}\w${CODE_YELL}\$(parse_git_branch)${CODE_RED}\$(parse_hg_branch
 
 export PS1;
 
-# Setting PATH for Python 3.5
-# The orginal version is saved in .bash_profile.pysave
-export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-
 GIT_CMD=`which git`
 
 function g {
@@ -78,3 +79,4 @@ function g {
 
 source ~/.bashrc
 source ~/.git-completion.bash
+source /usr/local/bin/virtualenvwrapper.sh
