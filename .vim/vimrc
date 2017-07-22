@@ -11,38 +11,39 @@ Plugin 'Shougo/deoplete.nvim'
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Bundle 'lepture/vim-jinja'
+Plugin 'ternjs/tern_for_vim'
+"Bundle 'lepture/vim-jinja'
 
 Plugin 'sjl/badwolf'
-Plugin 'digitaltoad/vim-pug'
+"Plugin 'digitaltoad/vim-pug'
 
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-misc'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
-Plugin 'mileszs/ack.vim'
+"Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'nvie/vim-flake8'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
-Plugin 'craigemery/vim-autotag'
+"Plugin 'craigemery/vim-autotag'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'rking/ag.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'sjl/splice.vim'
+"Plugin 'sjl/splice.vim'
 
-Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+"Plugin 'toyamarinyon/vim-swift'
+"Plugin 'cakebaker/scss-syntax.vim'
+"Plugin 'leafgarland/typescript-vim'
 
-Plugin 'wakatime/vim-wakatime'
+"Plugin 'wakatime/vim-wakatime'
 
-Plugin 'toyamarinyon/vim-swift'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'kchmck/vim-coffee-script'
+"Plugin 'kchmck/vim-coffee-script'
 Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
@@ -78,7 +79,7 @@ set laststatus=2
 
 let g:airline#extensions#tabline#enabled = 1
 
-set nu
+set rnu
 
 set wrap
 
@@ -91,9 +92,9 @@ let mapleader = ","
 " }}}
 " ##### General mappings  {{{
 " ##### Tabs {{{
-nnoremap <leader>c :tabclose<cr>
-nnoremap <leader>n :tabnext<cr>
-nnoremap <leader>p :tabprevious<cr>
+nnoremap <leader>c :tabclose<CR>
+nnoremap <leader>n :tabnext<CR>
+nnoremap <leader>p :tabprevious<CR>
 " }}}
 " ##### Fzf {{{
 noremap <silent> <leader>f :Files<CR>
@@ -162,6 +163,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 syntax enable
+
+let g:Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 if filereadable('.vimrclocal')
   so .vimrclocal
