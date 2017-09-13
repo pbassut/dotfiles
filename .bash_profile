@@ -67,7 +67,7 @@ PS1="${CODE_GRAY}\w${CODE_YELL}\$(parse_git_branch)${CODE_RED}\$(parse_hg_branch
 
 export PS1;
 
-GIT_CMD=`which git`
+GIT_CMD=`which hub`
 
 function g {
     if [[ "$#" -eq 0 ]]; then
