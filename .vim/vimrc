@@ -65,9 +65,9 @@ let g:airline#extensions#branch#enabled = 1
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set autoindent
 set copyindent
 set expandtab
