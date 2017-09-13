@@ -21,7 +21,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-misc'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'mileszs/ack.vim'
@@ -43,7 +43,11 @@ Plugin 'pangloss/vim-javascript'
 
 "Plugin 'wakatime/vim-wakatime'
 
-"Plugin 'kchmck/vim-coffee-script'
+Plugin 'wakatime/vim-wakatime'
+
+Plugin 'toyamarinyon/vim-swift'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
@@ -83,6 +87,8 @@ set rnu
 
 set wrap
 
+set wrap
+
 " Inserting pdb breakpoint 
 map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
 map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
@@ -92,9 +98,9 @@ let mapleader = ","
 " }}}
 " ##### General mappings  {{{
 " ##### Tabs {{{
-nnoremap <leader>c :tabclose<CR>
-nnoremap <leader>n :tabnext<CR>
-nnoremap <leader>p :tabprevious<CR>
+nnoremap <leader>c :tabclose<cr>
+nnoremap <leader>n :tabnext<cr>
+nnoremap <leader>p :tabprevious<cr>
 " }}}
 " ##### Fzf {{{
 noremap <silent> <leader>f :Files<CR>
