@@ -7,9 +7,10 @@ ln -s $PWD/.vim/ ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
 
-# symlink batch comamdns and env vars
+# symlink batch commands and env vars
 ln -s $PWD/.bash_profile ~/.bash_profile
 ln -s $PWD/.bashrc ~/.bashrc
+ln -s $PWD/git-diff-cmd.sh ~/git-diff-cmd.sh
 
 ln -s $PWD/.gitignore_global ~/.gitignore_global
 ln -s $PWD/.gitconfig ~/.gitconfig
