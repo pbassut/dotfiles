@@ -79,4 +79,3 @@ function g {
 
 source ~/.bashrc
 source ~/.git-completion.bash
-source /usr/local/bin/virtualenvwrapper.sh
