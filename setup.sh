@@ -5,7 +5,8 @@ brew install the_silver_searcher fzf neovim/neovim/neovim node mongo ctags
 # symlink vim to ~/
 ln -s $PWD/.vim/ ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
-ln -s ~/.vim/gvimrc ~/.gvimrc
+mkdir -p ~/.config/nvim/
+ln -s ~/.vim/vimrc ~/.config/nvim/init.vim
 
 # symlink batch commands and env vars
 ln -s $PWD/.bash_profile ~/.bash_profile
