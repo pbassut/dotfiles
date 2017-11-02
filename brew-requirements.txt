@@ -8,3 +8,4 @@ python3
 the_silver_searcher
 unrar
 watchman
+hub
