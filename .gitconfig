@@ -189,3 +189,5 @@
 	tool = opendiff
 [mergetool "opendiff"]
 	trustExitCode = false
+[commit]
+	gpgsign = true
