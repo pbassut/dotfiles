@@ -1,12 +1,27 @@
-set nocompatible
-filetype off
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              minimal init.vim                              "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.config/nvim/plugins/deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+
+filetype plugin indent on
+syntax enable
+
+" Clipbord
+set clipboard+=unnamedplus  " use clipboard ( see : help clipboard )
+
+" Mouse ( see :help mouse-using )
+set mouse=nvic
 
 
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+Plugin 'roxma/nvim-yarp'
 Plugin 'Shougo/deoplete.nvim'
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -42,7 +57,7 @@ Plugin 'pangloss/vim-javascript'
 
 "Plugin 'wakatime/vim-wakatime'
 
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -165,6 +180,7 @@ autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 syntax enable
 
 let g:Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+
 
 if filereadable('.vimrclocal')
   so .vimrclocal
