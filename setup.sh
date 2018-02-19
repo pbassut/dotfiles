@@ -3,11 +3,12 @@ brew update
 brew install the_silver_searcher fzf neovim/neovim/neovim node mongo ctags
 
 # symlink vim to ~/
+ln -s $PWD/config.fish ~/.config/fish/config.fish
 ln -s $PWD/.vim/ ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
+
 mkdir -p ~/.config/nvim/
 ln -s ~/.vim/vimrc ~/.config/nvim/init.vim
-ln -s config.fish ~/.config/fish/config.fish
 
 # symlink batch commands and env vars
 ln -s $PWD/.bash_profile ~/.bash_profile
