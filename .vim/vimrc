@@ -1,14 +1,15 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              minimal init.vim                              "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set shell=/bin/bash
 
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 set runtimepath+=~/.config/nvim/plugins/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 
-filetype plugin indent on
-syntax enable
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 " Clipbord
 set clipboard+=unnamedplus  " use clipboard ( see : help clipboard )
@@ -20,16 +21,15 @@ set mouse=nvic
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'roxma/nvim-yarp'
 Plugin 'Shougo/deoplete.nvim'
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
 
 Plugin 'ternjs/tern_for_vim'
 "Bundle 'lepture/vim-jinja'
 
-Plugin 'sjl/badwolf'
+Plugin 'morhetz/gruvbox'
 "Plugin 'digitaltoad/vim-pug'
 
 Plugin 'bling/vim-airline'
@@ -40,7 +40,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'nvie/vim-flake8'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'craigemery/vim-autotag'
@@ -49,8 +48,15 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'rking/ag.vim'
 "Plugin 'sjl/splice.vim'
 
-Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'mhartington/nvim-typescript'
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'elmcast/elm-vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'flowtype/vim-flow'
+Plugin 'jparise/vim-graphql'
+Plugin 'prettier/vim-prettier'
 "Plugin 'toyamarinyon/vim-swift'
 "Plugin 'cakebaker/scss-syntax.vim'
 "Plugin 'leafgarland/typescript-vim'
@@ -77,6 +83,8 @@ let g:airline#extensions#branch#enabled = 1
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"
+syntax enable
 
 set shiftwidth=2
 set tabstop=2
@@ -84,6 +92,7 @@ set softtabstop=2
 set autoindent
 set copyindent
 set expandtab
+set noro
 
 set ignorecase
 set smartcase
@@ -96,12 +105,6 @@ set rnu
 
 set wrap
 
-set wrap
-
-" Inserting pdb breakpoint 
-map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
-map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
-
 " Leader = ,
 let mapleader = ","
 " }}}
@@ -109,7 +112,7 @@ let mapleader = ","
 " ##### Tabs {{{
 nnoremap <leader>c :tabclose<cr>
 nnoremap <leader>n :tabnext<cr>
-nnoremap <leader>p :tabprevious<cr>
+nnoremap <leader>m :tabprevious<cr>
 " }}}
 " ##### Fzf {{{
 noremap <silent> <leader>f :Files<CR>
@@ -135,7 +138,9 @@ nnoremap gd :bw<CR>
 
 nmap <S-Enter> O<Esc>
 
-colorscheme badwolf
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
+set background=dark
 
 set relativenumber
 
@@ -176,11 +181,13 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 syntax enable
 
 let g:Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
+let g:flow#enable = 0
+
+set timeoutlen=1000 ttimeoutlen=0
 
 if filereadable('.vimrclocal')
   so .vimrclocal

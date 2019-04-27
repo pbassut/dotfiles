@@ -18,7 +18,7 @@ set LANG en_US.UTF-8
 #set PATH $PATH /Applications/Postgres.app/Contents/Versions/latest/bin
 #set PATH $PATH $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 #set PATH $PATH $HOME/.fastlane/bin
-#set PATH $PATH /Library/Frameworks/Python.framework/Versions/3.5/bin
+set PATH="~/Library/Python/3.7/bin/:(PATH)"
 
 # Activates the virtualenv wrapper for the cwd
 function vaw
