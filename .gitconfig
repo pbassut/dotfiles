@@ -2,7 +2,7 @@
 [core]
 	editor = /usr/local/bin/nvim
     pager=less -x4
-	excludesfile = /Users/patrickbassut/.gitignore_global
+	excludesFile = ~/.gitignore_global
 	trustctime = false
 
 #}}}
@@ -10,6 +10,7 @@
 [user]
 	email = patrickbassut@hotmail.com
 	name = Patrick Bassut
+	signingkey = F6F536EAEE133D30
 
 #}}}
 # include sendemail config {{{
@@ -56,12 +57,21 @@
         git branch | grep -v "master" | grep -v ^* | xargs git branch -D;\
     }; f"
     # basic {{{
+    adp = add -p
     st = status -s
     cl = clone
     ci = commit
-    co = checkout
+    c = checkout
+    cb = checkout -b
+    p = push
+    pl = pull
     br = branch
     r = reset
+    rp = reset -p
+    ri = rebase -i
+    ri1 = rebase -i HEAD~1
+    ri2 = rebase -i HEAD~2
+    rc = rebase --continue
     cp = cherry-pick
     gr = grep -Ii
     # }}}
@@ -80,6 +90,7 @@
     cma = commit -a -m
     ca = commit --amend
     amend = commit --amend
+    samend = commit --amend --no-edit
     caa = commit -a --amend -C HEAD
     # }}}
     # log commands {{{
@@ -110,11 +121,6 @@
     rh = reset --hard
     rh1 = reset HEAD^ --hard
     rh2 = reset HEAD^^ --hard
-    # }}}
-    # git svn {{{
-    svnr = svn rebase
-    svnd = svn dcommit
-    svnl = svn log --oneline --show-commit
     # }}}
     # stash {{{
     sl = stash list
@@ -159,17 +165,19 @@
 
     # initial empty commit
     empty = "!git commit -am\"[empty] Initial commit\" --allow-empty"
+    brc = "!git branch --show-current"
+
+    p = pull
 
     # list all aliases
     la = "!git config -l | grep alias | cut -c 7-"
+    mt = mergetool
     # }}}
     # convoluted aliases {{{
     # grep from root folder
     gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
     #rename branch tree to done-
     done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
-    #add bitbucket remote
-    ra = "!f() { git remote add $1 https://bitbucket.org/$2.git; }; f"
     # }}}
     # worktree list {{{
     wl = worktree list
